@@ -1,4 +1,4 @@
-from stats import count_words, count_letters, sort_dictionary
+from stats import count_words, count_letters, sort_dictionary, get_words, sort_word_dictionary
 import sys
 
 def get_book_text(file_path):
@@ -27,4 +27,11 @@ def main():
   for i in range(len(sorted_dict)):
     print(sorted_dict[i]["char"]+ ": " + str(sorted_dict[i]["num"]))
   
+  words = get_words(buch)
+#  print(words)
+  print("----- Most common words --------")
+  sorted_word_dict = sort_word_dictionary(words)
+  for i in range(10):
+    if sorted_word_dict[i]["num"] > 3:
+      print(sorted_word_dict[i]["word"]+ ": " + str(sorted_word_dict[i]["num"]))
 main()
